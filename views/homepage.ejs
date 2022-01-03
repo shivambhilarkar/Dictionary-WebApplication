@@ -1,0 +1,61 @@
+<%- include ('./partials/header') %>
+
+<div class="box">
+  <!-- <h1>Welcome to Similar</h1>
+  <h5>IN ORDER TO FIND, YOU MUST FIRST SEARCH</h5> -->
+  <div class="container">
+    <form action="/search">
+
+      <input type="text" name="searchterm" required>
+      <button>Search</button>
+
+    </form>
+
+  </div>
+</div>
+
+<div class="output">
+  <div class="container">
+
+    <% if(searchWord !== undefined ) { %>
+    <h2 class="searchword">Word : <%= searchWord %> </h2>
+    <% } %>
+
+    <% if(wordMeaning !== undefined) { %>
+    <h4 class="searchmeaning">Meaning : <%= wordMeaning %> </h4>
+
+    <% } %>
+
+    <% if (wordExample !== undefined ) { %>
+    <h4 class="searchexample">Example : <%= wordExample %> </h4>
+    <% } %>
+
+    <%  if(wordVoice !== undefined) {%>
+    <audio controls>
+      <source src=<%= wordVoice %> type="audio/mpeg">
+    </audio>
+
+    <% } %>
+  </div>
+  <div class="imagebox">
+    <h3>Similar Images of <%= searchWord %></h3>
+    <div class="imgflex">
+      <img src=<%= imageURL %> alt="">
+      <img src=<%= imageURL2 %> alt="">
+      <img src=<%= imageURL3 %> alt="">
+      <img src=<%= imageURL4 %> alt="">
+      <img src=<%= imageURL5 %> alt="">
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+</body>
+
+</html>

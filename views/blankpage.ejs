@@ -1,0 +1,53 @@
+<%- include ('./partials/header') %>
+
+<div class="clock_cont">
+  <h1 id="m_clock">Mon Jan 01 </h1>
+  <h1 id="clock">12:00:00</h1>
+</div>
+
+<div class="box">
+  <h1>Welcome to Similar</h1>
+  <h5>IN ORDER TO FIND, YOU MUST FIRST SEARCH</h5>
+  <div class="container">
+    <form action="/search">
+
+      <input type="text" name="searchterm" required>
+      <button>Search</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+<script>
+  const clck = document.getElementById("clock");
+  const m_clck = document.getElementById("m_clock");
+
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  console.log(Date());
+  setInterval(() => {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let second = date.getSeconds();
+
+    if (hours > 12) {
+      hours = hours - 12;
+    }
+    let day = date.getDay();
+    let month = date.getMonth();
+    let date_no = date.getDate();
+
+    m_clck.textContent = days[day] + " " + months[month] + " " + date_no;
+    clck.textContent = hours + ":" + minutes + ":" + second;
+
+  })
+</script>
+
+</body>
+
+</html>
